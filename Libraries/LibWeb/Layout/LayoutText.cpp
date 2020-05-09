@@ -90,6 +90,9 @@ void LayoutText::render_fragment(RenderingContext& context, const LineBoxFragmen
         text = m_text_for_rendering.to_uppercase();
     if (text_transform == "lowercase")
         text = m_text_for_rendering.to_lowercase();
+    if (text_transform == "capitalize")
+        text = m_text_for_rendering;
+        text[0].to_uppercase();
 
     painter.draw_text(enclosing_int_rect(fragment.rect()), text.substring_view(fragment.start(), fragment.length()), Gfx::TextAlignment::TopLeft, color);
 }
